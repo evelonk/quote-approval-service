@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from app.database import make_engine
 from app.init_db import initialize
 from app.main import create_app
-from app.models import Quote
+from app.models import Quote, User
 
 PASSWORD = "only-for-tests-123"
 
@@ -76,11 +76,64 @@ def test_unassigned_or_missing_organization(client, org_id):
     assert client.post("/quotes", json={"client_org_id": org_id}, auth=auth()).status_code == 404
 
 
+@pytest.mark.parametrize("field,value", [
+    pytest.param("owner_id", 2, id="owner_id"),
+    pytest.param("user_id", 2, id="user_id"),
+    pytest.param("role", "lead", id="role"),
+    pytest.param("status", "approved", id="status"),
+])
+def test_server_owned_fields_are_rejected_without_changing_data(client, database_url, field, value):
+    payload = {"client_org_id": 1, "comment": "Original draft"}
+    response = client.post("/quotes", json=payload, auth=auth())
+    assert response.status_code == 201
+    draft = response.json()
+    assert draft["owner_id"] == 1
+    assert draft["status"] == "draft"
+    assert draft["client_org_id"] == payload["client_org_id"]
+    assert draft["comment"] == payload["comment"]
+
+    engine = make_engine(database_url)
+    try:
+        with Session(engine) as session:
+            before = session.execute(select(Quote.__table__)).mappings().all()
+            assert len(before) == 1
+            assert before[0]["id"] == draft["id"]
+            assert before[0]["owner_id"] == 1
+            assert before[0]["status"] == "draft"
+            assert session.get(User, 1).role == "manager"
+
+        response = client.post("/quotes", json={**payload, field: value}, auth=auth())
+        assert response.status_code == 422
+        assert any(error["loc"] == ["body", field] and error["type"] == "extra_forbidden"
+                   for error in response.json()["detail"])
+
+        with Session(engine) as session:
+            after = session.execute(select(Quote.__table__)).mappings().all()
+            assert after == before
+            assert session.get(User, 1).role == "manager"
+        response = client.get("/quotes/" + draft["id"], auth=auth())
+        assert response.status_code == 200
+        assert response.json() == draft
+
+        # A rejected request must not break subsequent permitted creation.
+        response = client.post("/quotes", json={**payload, "comment": "After rejection"}, auth=auth())
+        assert response.status_code == 201
+        second_draft = response.json()
+        assert second_draft["id"] != draft["id"]
+        assert second_draft["owner_id"] == 1
+        assert second_draft["status"] == "draft"
+        with Session(engine) as session:
+            assert session.scalar(select(func.count()).select_from(Quote)) == 2
+            assert session.get(Quote, second_draft["id"]).comment == "After rejection"
+    finally:
+        engine.dispose()
+
+
 @pytest.mark.parametrize("extra", [
-    {"owner_id": 2}, {"role": "lead"}, {"status": "approved"}, {"total": 1},
+    {"total": 1},
     {"comment": "x" * 1001}, {"client_org_id": 0}, {"client_org_id": "1"},
 ])
-def test_invalid_or_server_owned_fields_do_not_create_draft(client, database_url, extra):
+def test_invalid_fields_do_not_create_draft(client, database_url, extra):
     response = client.post("/quotes", json={"client_org_id": 1, **extra}, auth=auth())
     assert response.status_code == 422
     engine = make_engine(database_url)

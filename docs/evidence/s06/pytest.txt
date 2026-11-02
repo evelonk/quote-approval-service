@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+collecting ... collected 18 items
+
+tests/test_api.py::test_create_read_and_restart PASSED                   [  5%]
+tests/test_api.py::test_authentication[None] PASSED                      [ 11%]
+tests/test_api.py::test_authentication[credentials1] PASSED              [ 16%]
+tests/test_api.py::test_authentication[credentials2] PASSED              [ 22%]
+tests/test_api.py::test_other_roles_cannot_create_or_read_drafts[lead] PASSED [ 27%]
+tests/test_api.py::test_other_roles_cannot_create_or_read_drafts[client] PASSED [ 33%]
+tests/test_api.py::test_other_manager_cannot_read_draft PASSED           [ 38%]
+tests/test_api.py::test_unassigned_or_missing_organization[2] PASSED     [ 44%]
+tests/test_api.py::test_unassigned_or_missing_organization[999] PASSED   [ 50%]
+tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[owner_id] PASSED [ 55%]
+tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[user_id] PASSED [ 61%]
+tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[role] PASSED [ 66%]
+tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[status] PASSED [ 72%]
+tests/test_api.py::test_invalid_fields_do_not_create_draft[extra0] PASSED [ 77%]
+tests/test_api.py::test_invalid_fields_do_not_create_draft[extra1] PASSED [ 83%]
+tests/test_api.py::test_invalid_fields_do_not_create_draft[extra2] PASSED [ 88%]
+tests/test_api.py::test_invalid_fields_do_not_create_draft[extra3] PASSED [ 94%]
+tests/test_api.py::test_health_and_missing_draft PASSED                  [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/annvyss/quote-approval-service/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 18 passed, 1 warning in 6.99s =========================

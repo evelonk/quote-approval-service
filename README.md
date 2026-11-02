@@ -128,3 +128,6 @@ python -m pytest -q
 - [Требования безопасности](docs/security-requirements.md).
 - [Модель угроз](docs/threat-model.md).
 - [Проектные решения](docs/design-decisions.md).
+- [S06: подтверждение защиты серверных полей черновика](docs/s06-data-validation.md).
+- [Вклад участников](CONTRIBUTIONS.md).
+- [Использование ИИ и проверка человеком](AI_USAGE.md).
