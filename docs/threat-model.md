@@ -1,6 +1,6 @@
 # Модель угроз Quote Approval Service
 
-Модель составлена к S04 на основе [паспорта проекта](https://github.com/evelonk/quote-approval-service/blob/main/PROJECT.md) и [требований SR-01–SR-08](https://github.com/evelonk/quote-approval-service/blob/main/docs/security-requirements.md). Минимальная серверная основа уже реализована; расчёт цен, версии и согласование пока запланированы. Ниже описаны возможные угрозы, а не найденные ошибки кода.
+Модель составлена к S04 на основе [паспорта проекта](https://github.com/evelonk/quote-approval-service/blob/main/PROJECT.md) и [требований SR-01–SR-08](https://github.com/evelonk/quote-approval-service/blob/main/docs/security-requirements.md). В рабочей копии ядра реализованы расчет цен, версии и согласование; проверенные свойства и ограничения приведены в [свидетельстве](evidence/core/README.md). Ниже описаны возможные угрозы, а не найденные ошибки кода.
 
 ## 1. Система и допущения
 
