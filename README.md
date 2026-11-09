@@ -111,6 +111,15 @@ python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
 
+## CI
+
+GitHub Actions запускает тесты при push и pull request.
+Конфигурация: [.github/workflows/ci.yml](.github/workflows/ci.yml).
+
+Для коммита `8bea5cf` прошли 18 тестов. Сохранены
+[отчет](docs/evidence/ci/8bea5cf/test-results.xml)
+и [полный SHA](docs/evidence/ci/8bea5cf/checked-commit.txt).
+
 ## Ограничения
 
 - HTTP Basic используется для локального запуска. Порт API опубликован только на `127.0.0.1`. Для удаленного доступа нужны HTTPS и пересмотр способа аутентификации.
