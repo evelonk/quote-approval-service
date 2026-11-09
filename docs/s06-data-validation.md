@@ -35,7 +35,7 @@
 
 ## Проверенная версия и запуск
 
-- Исходный commit: [`18bca1b81d040f2c70f1e33cfc6f032ec9020828`](https://github.com/evelonk/quote-approval-service/commit/18bca1b81d040f2c70f1e33cfc6f032ec9020828). Проверена рабочая копия с изменениями тестов; файлы `app/` и зависимости
+- Исходный commit: [`18bca1b81d040f2c70f1e33cfc6f032ec9020828`](https://github.com/evelonk/quote-approval-service/commit/18bca1b81d040f2c70f1e33cfc6f032ec9020828). Проверена рабочая копия с изменениями тестов; файлы `app/` и зависимости не менялись. Изменения тестов и свидетельство сохранены в [6791aa7](https://github.com/evelonk/quote-approval-service/commit/6791aa7e7868ec11c108aaa8c07ad61aee00bcba). Это фиксация проверенной рабочей копии, а не утверждение о новом запуске после коммита.
 
 Команда из корня репозитория, после подготовки `.venv` по [README](../README.md):
 
@@ -63,4 +63,4 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -v --no-header -p no:cachep
 в набор проверок, поскольку оно прямо названо в критерии SR-01.
 
 
-Проверки используют FastAPI TestClient и SQLite
+Проверки используют FastAPI TestClient и SQLite. Проверка ограничена созданием черновика через `POST /quotes`; PostgreSQL, Docker, конкурентные операции и будущие версии этим прогоном не проверялись.
