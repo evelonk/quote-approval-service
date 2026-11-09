@@ -1,0 +1,93 @@
+S08. Локальная проверка Docker Compose и PostgreSQL
+
+Дата: 09.11.2026
+Участник: M3
+Commit: 62234b3d6a3f46d00df6ff885d1697ed9b4c3116
+Рабочая копия: git status --short не вывел изменений.
+Использована существующая локальная база с учебными данными.
+
+1. Сборка и запуск
+
+Команда:
+docker compose up --build -d --wait
+
+Результат:
+Image quote-approval-local-api       Built
+Container quote-approval-local-api-1 Healthy
+Container quote-approval-local-db-1  Healthy
+
+Команда:
+docker compose ps
+
+Результат:
+api — quote-approval-local-api, healthy, 127.0.0.1:8000->8000/tcp
+db  — postgres:16, healthy, 5432/tcp
+
+
+2. Проверка готовности API
+
+Команда:
+curl -i http://127.0.0.1:8000/health
+
+Получено:
+HTTP/1.1 200 OK
+{"status":"ok"}
+
+
+3. Первая попытка создания: неверные учетные данные
+
+Команда:
+curl -i -u manager1 -H 'Content-Type: application/json' \
+  -d '{"client_org_id":1,"comment":"Проверка стенда S08"}' \
+  http://127.0.0.1:8000/quotes
+
+Получено:
+HTTP/1.1 401 Unauthorized
+www-authenticate: Basic
+{"detail":"Invalid credentials"}
+
+
+4. Создание с действительными учетными данными
+
+Повторена та же команда с правильным паролем manager1.
+
+Получено:
+HTTP/1.1 201 Created
+{"id":"ae12a019-7247-419f-af05-42b48a9e2f4e","owner_id":1,"client_org_id":1,"comment":"Проверка стенда S08","status":"draft","created_at":"2026-11-09T10:56:50.363351Z"}
+
+
+5. Чтение владельцем
+
+Команды:
+QUOTE_ID='ae12a019-7247-419f-af05-42b48a9e2f4e'
+curl -i -u manager1 "http://127.0.0.1:8000/quotes/$QUOTE_ID"
+
+Получено:
+HTTP/1.1 200 OK
+{"id":"ae12a019-7247-419f-af05-42b48a9e2f4e","owner_id":1,"client_org_id":1,"comment":"Проверка стенда S08","status":"draft","created_at":"2026-11-09T10:56:50.363351Z"}
+
+
+6. Попытка чтения другим менеджером
+
+Команда:
+curl -i -u manager2 "http://127.0.0.1:8000/quotes/$QUOTE_ID"
+
+Получено:
+HTTP/1.1 404 Not Found
+{"detail":"Quote not found"}
+
+
+Вывод
+
+Образ собран, API и PostgreSQL запущены и прошли проверки готовности.
+Черновик создан и прочитан владельцем. Запрос с неверными учетными
+данными отклонен. Другой менеджер не получил содержимое черновика.
+
+Проверка доступа связана с T-01, SR-02 и D-01.
+Отказ при неверных учетных данных связан с SR-01.
+
+Границы проверки
+
+Проверены указанные запросы на локальном стенде с PostgreSQL.
+В этом запуске не проверялись сохранение нового черновика после
+перезапуска, конкурентные запросы и воспроизведение другим участником.
