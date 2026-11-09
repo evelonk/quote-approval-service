@@ -24,6 +24,9 @@ jobs:
       - name: Run tests
         run: python -m pytest -v --junitxml=test-results.xml
 
+      - name: Build Docker image
+        run: docker build -t quote-approval-service:${{ github.sha }} .
+
       - name: Record checked commit
         if: always()
         run: git rev-parse HEAD > checked-commit.txt
