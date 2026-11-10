@@ -1,0 +1,98 @@
+{
+  "checked_on": "2026-11-10",
+  "source": "GitHub REST API, read only",
+  "run": {
+    "id": 42627635277,
+    "head_sha": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/evelonk/quote-approval-service/actions/runs/42627635277",
+    "created_at": "2026-11-09T13:41:08Z",
+    "updated_at": "2026-11-09T13:42:50Z"
+  },
+  "jobs": [
+    {
+      "name": "tests",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build Docker image",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record checked commit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save test results",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13680000882,
+      "name": "test-results",
+      "size_in_bytes": 1415,
+      "expired": false,
+      "digest": "sha256:27d832feb3aae15caabec0a87e9573dcf863c9da0acb0ca9c5ee80eac8a5034f",
+      "created_at": "2026-11-09T13:42:44Z",
+      "expires_at": "2027-02-07T13:41:09Z"
+    }
+  ],
+  "artifact_zip_downloaded": false
+}

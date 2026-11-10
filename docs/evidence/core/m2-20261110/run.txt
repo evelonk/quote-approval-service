@@ -1,0 +1,248 @@
+ Image quote-core-check-33079-tests Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 606B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 594B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 87B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 62.65kB done
+#5 DONE 0.0s
+
+#6 [1/9] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.0s done
+#6 DONE 0.0s
+
+#7 [3/9] COPY requirements.txt requirements-dev.txt constraints.txt ./
+#7 CACHED
+
+#8 [2/9] WORKDIR /app
+#8 CACHED
+
+#9 [4/9] RUN pip install --no-cache-dir -r requirements-dev.txt
+#9 CACHED
+
+#10 [5/9] RUN useradd --create-home appuser
+#10 CACHED
+
+#11 [6/9] COPY --chown=appuser:appuser app ./app
+#11 DONE 0.0s
+
+#12 [7/9] COPY --chown=appuser:appuser tests ./tests
+#12 DONE 0.0s
+
+#13 [8/9] COPY --chown=appuser:appuser pytest.ini ./
+#13 DONE 0.0s
+
+#14 [9/9] COPY --chown=appuser:appuser scripts/check_core_results.py ./scripts/check_core_results.py
+#14 DONE 0.0s
+
+#15 exporting to image
+#15 exporting layers 0.0s done
+#15 exporting manifest sha256:d4d3301be41a25f327ce4b22d1c91514c7412a5517e9d05250016d5b1eb10fde
+#15 exporting manifest sha256:d4d3301be41a25f327ce4b22d1c91514c7412a5517e9d05250016d5b1eb10fde done
+#15 exporting config sha256:5d9452e86654216ae336e67a3adc992ce7638071f7168c6d54dcf3093e46eeb7 done
+#15 exporting attestation manifest sha256:6d4bd8f788b0a4c8ccdb63a0c773f2d0ede4c919cd463325a4dd7a655c114b57 done
+#15 exporting manifest list sha256:c0fb19d89e4f22c4e3f592725f0c36c69d5ee39d59677fea55d5be0777acde1b done
+#15 naming to docker.io/library/quote-core-check-33079-tests:latest done
+#15 unpacking to docker.io/library/quote-core-check-33079-tests:latest 0.0s done
+#15 DONE 0.1s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.0s
+ Image quote-core-check-33079-tests Built 
+ Network quote-core-check-33079_default Creating 
+ Network quote-core-check-33079_default Created 
+ Container quote-core-check-33079-db-1 Creating 
+ Container quote-core-check-33079-db-1 Created 
+ Container quote-core-check-33079-tests-1 Creating 
+ Container quote-core-check-33079-tests-1 Created 
+Attaching to db-1, tests-1
+ Container quote-core-check-33079-db-1 Starting 
+ Container quote-core-check-33079-db-1 Started 
+ Container quote-core-check-33079-db-1 Waiting 
+db-1  | The files belonging to this database system will be owned by user "postgres".
+db-1  | This user must also own the server process.
+db-1  | 
+db-1  | The database cluster will be initialized with locale "en_US.utf8".
+db-1  | The default database encoding has accordingly been set to "UTF8".
+db-1  | The default text search configuration will be set to "english".
+db-1  | 
+db-1  | Data page checksums are disabled.
+db-1  | 
+db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1  | creating subdirectories ... ok
+db-1  | selecting dynamic shared memory implementation ... posix
+db-1  | selecting default max_connections ... 100
+db-1  | selecting default shared_buffers ... 128MB
+db-1  | selecting default time zone ... Etc/UTC
+db-1  | creating configuration files ... ok
+db-1  | running bootstrap script ... ok
+db-1  | performing post-bootstrap initialization ... ok
+db-1  | syncing data to disk ... ok
+db-1  | 
+db-1  | 
+db-1  | Success. You can now start the database server using:
+db-1  | 
+db-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1  | 
+db-1  | initdb: warning: enabling "trust" authentication for local connections
+db-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1  | waiting for server to start....2026-11-10 15:42:26.588 UTC [49] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-1  | 2026-11-10 15:42:26.589 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-10 15:42:26.589 UTC [52] LOG:  database system was shut down at 2026-11-10 15:42:26 UTC
+db-1  | 2026-11-10 15:42:26.590 UTC [49] LOG:  database system is ready to accept connections
+db-1  |  done
+db-1  | server started
+db-1  | CREATE DATABASE
+db-1  | 
+db-1  | 
+db-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1  | 
+db-1  | waiting for server to shut down....2026-11-10 15:42:26.722 UTC [49] LOG:  received fast shutdown request
+db-1  | 2026-11-10 15:42:26.722 UTC [49] LOG:  aborting any active transactions
+db-1  | 2026-11-10 15:42:26.723 UTC [49] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+db-1  | 2026-11-10 15:42:26.723 UTC [50] LOG:  shutting down
+db-1  | 2026-11-10 15:42:26.723 UTC [50] LOG:  checkpoint starting: shutdown immediate
+db-1  | 2026-11-10 15:42:26.725 UTC [50] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.002 s; sync files=301, longest=0.001 s, average=0.000 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0A0, redo lsn=0/191F0A0
+db-1  | 2026-11-10 15:42:26.726 UTC [49] LOG:  database system is shut down
+db-1  |  done
+db-1  | server stopped
+db-1  | 
+db-1  | PostgreSQL init process complete; ready for start up.
+db-1  | 
+db-1  | 2026-11-10 15:42:26.837 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-1  | 2026-11-10 15:42:26.837 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-11-10 15:42:26.837 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-11-10 15:42:26.838 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-10 15:42:26.839 UTC [65] LOG:  database system was shut down at 2026-11-10 15:42:26 UTC
+db-1  | 2026-11-10 15:42:26.841 UTC [1] LOG:  database system is ready to accept connections
+ Container quote-core-check-33079-db-1 Healthy 
+ Container quote-core-check-33079-tests-1 Starting 
+ Container quote-core-check-33079-tests-1 Started 
+tests-1  | ============================= test session starts ==============================
+tests-1  | platform linux -- Python 3.12.16, pytest-8.4.2, pluggy-1.6.0 -- /usr/local/bin/python
+tests-1  | rootdir: /app
+tests-1  | configfile: pytest.ini
+tests-1  | testpaths: tests
+tests-1  | plugins: anyio-4.15.1
+tests-1  | collecting ... collected 72 items
+tests-1  | 
+tests-1  | tests/test_api.py::test_create_read_and_restart PASSED                   [  1%]
+tests-1  | tests/test_api.py::test_authentication[None] PASSED                      [  2%]
+tests-1  | tests/test_api.py::test_authentication[credentials1] PASSED              [  4%]
+tests-1  | tests/test_api.py::test_authentication[credentials2] PASSED              [  5%]
+tests-1  | tests/test_api.py::test_other_roles_cannot_create_or_read_drafts[lead] PASSED [  6%]
+tests-1  | tests/test_api.py::test_other_roles_cannot_create_or_read_drafts[client] PASSED [  8%]
+tests-1  | tests/test_api.py::test_other_manager_cannot_read_draft PASSED           [  9%]
+tests-1  | tests/test_api.py::test_unassigned_or_missing_organization[2] PASSED     [ 11%]
+tests-1  | tests/test_api.py::test_unassigned_or_missing_organization[999] PASSED   [ 12%]
+tests-1  | tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[owner_id] PASSED [ 13%]
+tests-1  | tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[user_id] PASSED [ 15%]
+tests-1  | tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[role] PASSED [ 16%]
+tests-1  | tests/test_api.py::test_server_owned_fields_are_rejected_without_changing_data[status] PASSED [ 18%]
+tests-1  | tests/test_api.py::test_invalid_fields_do_not_create_draft[extra0] PASSED [ 19%]
+tests-1  | tests/test_api.py::test_invalid_fields_do_not_create_draft[extra1] PASSED [ 20%]
+tests-1  | tests/test_api.py::test_invalid_fields_do_not_create_draft[extra2] PASSED [ 22%]
+tests-1  | tests/test_api.py::test_invalid_fields_do_not_create_draft[extra3] PASSED [ 23%]
+tests-1  | tests/test_api.py::test_health_and_missing_draft PASSED                  [ 25%]
+tests-1  | tests/test_concurrency.py::test_two_client_decisions_only_one_succeeds PASSED [ 26%]
+tests-1  | tests/test_concurrency.py::test_two_expiration_reads_only_one_event PASSED [ 27%]
+tests-1  | tests/test_concurrency.py::test_two_new_versions_only_one_draft PASSED   [ 29%]
+tests-1  | tests/test_concurrency.py::test_deadline_rechecked_after_waiting_for_lock PASSED [ 30%]
+tests-1  | tests/test_core_review.py::test_discount_boundaries[0-200.00-ready] PASSED [ 31%]
+tests-1  | tests/test_core_review.py::test_discount_boundaries[10-180.00-ready] PASSED [ 33%]
+tests-1  | tests/test_core_review.py::test_discount_boundaries[10.01-179.98-pending] PASSED [ 34%]
+tests-1  | tests/test_core_review.py::test_discount_boundaries[100-0.00-pending] PASSED [ 36%]
+tests-1  | tests/test_core_review.py::test_round_sum_before_discount_without_rounding_each_line PASSED [ 37%]
+tests-1  | tests/test_core_review.py::test_exact_deadline_expires_once[read] PASSED [ 38%]
+tests-1  | tests/test_core_review.py::test_exact_deadline_expires_once[accept] PASSED [ 40%]
+tests-1  | tests/test_core_review.py::test_exact_deadline_expires_once[decline] PASSED [ 41%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[ready] PASSED [ 43%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[pending] PASSED [ 44%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[returned] PASSED [ 45%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[sent] PASSED [ 47%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[accepted] PASSED [ 48%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[declined] PASSED [ 50%]
+tests-1  | tests/test_core_review.py::test_all_fixed_states_keep_recipient_terms_and_history[expired] PASSED [ 51%]
+tests-1  | tests/test_core_review.py::test_client_cannot_modify_own_sent_version_and_foreign_lists_do_not_leak PASSED [ 52%]
+tests-1  | tests/test_workflow.py::test_standard_scenario PASSED                    [ 54%]
+tests-1  | tests/test_workflow.py::test_approval_new_version_and_old_snapshot PASSED [ 55%]
+tests-1  | tests/test_workflow.py::test_lead_queue_return_and_history PASSED        [ 56%]
+tests-1  | tests/test_workflow.py::test_client_fields_and_permissions PASSED        [ 58%]
+tests-1  | tests/test_workflow.py::test_mismatched_quote_and_version PASSED         [ 59%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change0] PASSED [ 61%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change1] PASSED [ 62%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change2] PASSED [ 63%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change3] PASSED [ 65%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change4] PASSED [ 66%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change5] PASSED [ 68%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change6] PASSED [ 69%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change7] PASSED [ 70%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change8] PASSED [ 72%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change9] PASSED [ 73%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change10] PASSED [ 75%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change11] PASSED [ 76%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change12] PASSED [ 77%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change13] PASSED [ 79%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change14] PASSED [ 80%]
+tests-1  | tests/test_workflow.py::test_invalid_terms_do_not_change_version[change15] PASSED [ 81%]
+tests-1  | tests/test_workflow.py::test_money_rounding_overflow_and_finalize_snapshot PASSED [ 83%]
+tests-1  | tests/test_workflow.py::test_expiration_is_saved_once_even_on_rejected_decision PASSED [ 84%]
+tests-1  | tests/test_workflow.py::test_accepted_does_not_expire_and_cannot_be_overwritten PASSED [ 86%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[edit] PASSED [ 87%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[finalize] PASSED [ 88%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[approval] PASSED [ 90%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[send] PASSED [ 91%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[decision] PASSED [ 93%]
+tests-1  | tests/test_workflow.py::test_failure_between_state_and_event_rolls_back[next] PASSED [ 94%]
+tests-1  | tests/test_workflow.py::test_upgrade_preserves_legacy_quotes_and_passwords PASSED [ 95%]
+tests-1  | tests/test_workflow.py::test_expiration_before_send_allows_new_draft_without_rewriting_old[10] PASSED [ 97%]
+tests-1  | tests/test_workflow.py::test_expiration_before_send_allows_new_draft_without_rewriting_old[15] PASSED [ 98%]
+tests-1  | tests/test_workflow.py::test_repeated_finalization_and_approval_are_rejected PASSED [100%]
+tests-1  | 
+tests-1  | =============================== warnings summary ===============================
+tests-1  | ../usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1
+tests-1  |   /usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+tests-1  |     from starlette.testclient import TestClient as TestClient  # noqa
+tests-1  | 
+tests-1  | -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+tests-1  | ---------------- generated xml file: /reports/test-results.xml -----------------
+tests-1  | ======================== 72 passed, 1 warning in 26.39s ========================
+tests-1  | Verified 72 tests, no failures/errors/skips; all four PostgreSQL concurrency checks executed.
+
+tests-1 exited with code 0
+ Compose Stopping Aborting on container exit...
+ Container quote-core-check-33079-tests-1 Stopping 
+ Container quote-core-check-33079-tests-1 Stopped 
+ Container quote-core-check-33079-db-1 Stopping 
+db-1     | 2026-11-10 15:42:56.427 UTC [1] LOG:  received fast shutdown request
+db-1     | 2026-11-10 15:42:56.427 UTC [1] LOG:  aborting any active transactions
+db-1     | 2026-11-10 15:42:56.428 UTC [1] LOG:  background worker "logical replication launcher" (PID 68) exited with exit code 1
+db-1     | 2026-11-10 15:42:56.428 UTC [63] LOG:  shutting down
+db-1     | 2026-11-10 15:42:56.428 UTC [63] LOG:  checkpoint starting: shutdown immediate
+db-1     | 2026-11-10 15:42:56.439 UTC [63] LOG:  checkpoint complete: wrote 886 buffers (5.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.004 s, sync=0.006 s, total=0.011 s; sync files=2197, longest=0.001 s, average=0.001 s; distance=16957 kB, estimate=16957 kB; lsn=0/29AE660, redo lsn=0/29AE660
+db-1     | 2026-11-10 15:42:56.440 UTC [1] LOG:  database system is shut down
+ Container quote-core-check-33079-db-1 Stopped 
+
+db-1 exited with code 0
+Results: /tmp/quote-m2-final
+ Container quote-core-check-33079-tests-1 Stopping 
+ Container quote-core-check-33079-tests-1 Stopped 
+ Container quote-core-check-33079-tests-1 Removing 
+ Container quote-core-check-33079-tests-1 Removed 
+ Container quote-core-check-33079-db-1 Stopping 
+ Container quote-core-check-33079-db-1 Stopped 
+ Container quote-core-check-33079-db-1 Removing 
+ Container quote-core-check-33079-db-1 Removed 
+ Network quote-core-check-33079_default Removing 
+ Network quote-core-check-33079_default Removed 
