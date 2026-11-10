@@ -1,0 +1,7 @@
+Run: https://github.com/evelonk/quote-approval-service/actions/runs/42848716970
+Checked commit: 6fe40afeb0fff97ddd3886237ba6e3123aa552e1
+Artifact ZIP SHA256 matches official GitHub digest.
+JUnit: 72 tests; 0 failures; 0 errors; 0 skipped.
+All four PostgreSQL concurrency checks present and passed.
+Tests, Docker build, coverage guard and artifact upload: success.
+Downloaded XML checked with: python3 scripts/check_core_results.py docs/evidence/core/ci-6fe40af/test-results.xml

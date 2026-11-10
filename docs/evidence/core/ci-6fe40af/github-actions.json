@@ -1,0 +1,86 @@
+{
+  "checked_on": "2026-11-10",
+  "run": {
+    "id": 42848716970,
+    "head_sha": "6fe40afeb0fff97ddd3886237ba6e3123aa552e1",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/evelonk/quote-approval-service/actions/runs/42848716970",
+    "created_at": "2026-11-10T15:51:21Z",
+    "updated_at": "2026-11-10T15:53:19Z"
+  },
+  "jobs": [
+    {
+      "name": "tests",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install dependencies",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build Docker image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify PostgreSQL test coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record checked commit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save test results",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifact": {
+    "id": 13779068349,
+    "name": "test-results",
+    "digest": "sha256:4e670d53fea86ebda0f9f037bcc9e821e20c8f13641a74ee0f3c9d2daa466343",
+    "expired": false,
+    "size_in_bytes": 1705
+  },
+  "download_via": "nightly.link public artifact proxy",
+  "download_sha256": "4e670d53fea86ebda0f9f037bcc9e821e20c8f13641a74ee0f3c9d2daa466343",
+  "digest_matches_github": true
+}
