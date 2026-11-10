@@ -10,6 +10,7 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     services:
       postgres:
@@ -43,6 +44,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t quote-approval-service:${{ github.sha }} .
+
+      - name: Verify PostgreSQL test coverage
+        run: python scripts/check_core_results.py test-results.xml
 
       - name: Record checked commit
         if: always()

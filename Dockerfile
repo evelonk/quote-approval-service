@@ -7,5 +7,6 @@ RUN useradd --create-home appuser
 COPY --chown=appuser:appuser app ./app
 COPY --chown=appuser:appuser tests ./tests
 COPY --chown=appuser:appuser pytest.ini ./
+COPY --chown=appuser:appuser scripts/check_core_results.py ./scripts/check_core_results.py
 USER appuser
 CMD ["uvicorn", "app.main:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
