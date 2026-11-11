@@ -1,0 +1,112 @@
+[
+  {
+    "tool": "gitleaks",
+    "mode": "dir",
+    "cwd": "/private/tmp/quote-s09-yknr1n20/initial",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/gitleaks dir . --config /private/tmp/quote-s09-yknr1n20/config/gitleaks.toml --redact=100 --ignore-gitleaks-allow --no-banner --no-color --report-format json --report-path /private/tmp/quote-s09-yknr1n20/reports/initial/gitleaks-dir.json",
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "started_at_utc": "2026-11-11T22:12:36.115926+00:00",
+    "finished_at_utc": "2026-11-11T22:12:36.454784+00:00",
+    "exit_code": 0,
+    "report": "initial/gitleaks-dir.json",
+    "scope": "initial"
+  },
+  {
+    "tool": "gitleaks",
+    "mode": "git",
+    "cwd": "/private/tmp/quote-s09-yknr1n20/initial",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/gitleaks git . --config /private/tmp/quote-s09-yknr1n20/config/gitleaks.toml --redact=100 --ignore-gitleaks-allow --no-banner --no-color --report-format json --report-path /private/tmp/quote-s09-yknr1n20/reports/initial/gitleaks-git.json --log-opts=e41e9b6774ba4adb66964460f56be155d664abcb",
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "started_at_utc": "2026-11-11T22:12:36.455003+00:00",
+    "finished_at_utc": "2026-11-11T22:12:36.832761+00:00",
+    "exit_code": 0,
+    "report": "initial/gitleaks-git.json",
+    "scope": "initial"
+  },
+  {
+    "tool": "semgrep",
+    "cwd": "/private/tmp/quote-s09-yknr1n20/initial",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-env/bin/semgrep scan --oss-only --config /private/tmp/quote-s09-yknr1n20/config/python-rules.yml --metrics off --disable-version-check --no-secrets-validation --no-rewrite-rule-ids --strict --error --json --output /private/tmp/quote-s09-yknr1n20/reports/initial/semgrep.json app/__init__.py app/database.py app/init_db.py app/main.py app/models.py app/schemas.py app/security.py app/workflow.py scripts/smoke_core.py tests/conftest.py tests/test_api.py tests/test_concurrency.py tests/test_workflow.py",
+    "environment": {
+      "SSL_CERT_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-env/lib/python3.12/site-packages/certifi/cacert.pem",
+      "SEMGREP_LOG_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep.log",
+      "SEMGREP_SETTINGS_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-settings.yml"
+    },
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "started_at_utc": "2026-11-11T22:13:26.062971+00:00",
+    "finished_at_utc": "2026-11-11T22:13:28.815858+00:00",
+    "exit_code": 1,
+    "report": "initial/semgrep.json",
+    "scope": "initial",
+    "requested_files": [
+      "app/__init__.py",
+      "app/database.py",
+      "app/init_db.py",
+      "app/main.py",
+      "app/models.py",
+      "app/schemas.py",
+      "app/security.py",
+      "app/workflow.py",
+      "scripts/smoke_core.py",
+      "tests/conftest.py",
+      "tests/test_api.py",
+      "tests/test_concurrency.py",
+      "tests/test_workflow.py"
+    ]
+  },
+  {
+    "tool": "gitleaks",
+    "mode": "dir",
+    "cwd": "/private/tmp/quote-s09-commit-85w7zm81/source",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/gitleaks dir . --config /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/config/gitleaks.toml --redact=100 --ignore-gitleaks-allow --no-banner --no-color --report-format json --report-path /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/repeat/gitleaks-dir.json",
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "exit_code": 0,
+    "report": "repeat/gitleaks-dir.json",
+    "scope": "repeat",
+    "started_at_utc": "2026-11-11T22:32:14.324016+00:00",
+    "finished_at_utc": "2026-11-11T22:32:14.659993+00:00"
+  },
+  {
+    "tool": "gitleaks",
+    "mode": "git",
+    "cwd": "/private/tmp/quote-s09-commit-85w7zm81/source",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/gitleaks git . --config /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/config/gitleaks.toml --redact=100 --ignore-gitleaks-allow --no-banner --no-color --report-format json --report-path /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/repeat/gitleaks-git.json --log-opts=e41e9b6774ba4adb66964460f56be155d664abcb",
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "exit_code": 0,
+    "report": "repeat/gitleaks-git.json",
+    "scope": "repeat",
+    "started_at_utc": "2026-11-11T22:32:14.660307+00:00",
+    "finished_at_utc": "2026-11-11T22:32:15.024244+00:00"
+  },
+  {
+    "tool": "semgrep",
+    "cwd": "/private/tmp/quote-s09-commit-85w7zm81/source",
+    "command": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-env/bin/semgrep scan --oss-only --config /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/config/python-rules.yml --metrics off --disable-version-check --no-secrets-validation --no-rewrite-rule-ids --strict --error --json --output /private/tmp/quote-s09-commit-85w7zm81/publish/docs/evidence/s09/repeat/semgrep.json app/__init__.py app/database.py app/init_db.py app/main.py app/models.py app/schemas.py app/security.py app/workflow.py scripts/smoke_core.py tests/conftest.py tests/test_api.py tests/test_concurrency.py tests/test_workflow.py",
+    "environment": {
+      "SSL_CERT_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-env/lib/python3.12/site-packages/certifi/cacert.pem",
+      "SEMGREP_LOG_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep.log",
+      "SEMGREP_SETTINGS_FILE": "/private/tmp/rbpo-s09-tools.3qrIgp/semgrep-settings.yml"
+    },
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "exit_code": 1,
+    "report": "repeat/semgrep.json",
+    "scope": "repeat",
+    "started_at_utc": "2026-11-11T22:32:15.024621+00:00",
+    "finished_at_utc": "2026-11-11T22:32:17.789637+00:00",
+    "requested_files": [
+      "app/__init__.py",
+      "app/database.py",
+      "app/init_db.py",
+      "app/main.py",
+      "app/models.py",
+      "app/schemas.py",
+      "app/security.py",
+      "app/workflow.py",
+      "scripts/smoke_core.py",
+      "tests/conftest.py",
+      "tests/test_api.py",
+      "tests/test_concurrency.py",
+      "tests/test_workflow.py"
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "initial": {
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "tree": "3c7135fcca06da082b3ec46beb34f5f965af2c60",
+    "history_commits": 17,
+    "status": "",
+    "shallow": "false",
+    "status_after_scan": "",
+    "history_scope": "ancestors of e41e9b6774ba4adb66964460f56be155d664abcb",
+    "python_files": [
+      "app/__init__.py",
+      "app/database.py",
+      "app/init_db.py",
+      "app/main.py",
+      "app/models.py",
+      "app/schemas.py",
+      "app/security.py",
+      "app/workflow.py",
+      "scripts/smoke_core.py",
+      "tests/conftest.py",
+      "tests/test_api.py",
+      "tests/test_concurrency.py",
+      "tests/test_workflow.py"
+    ],
+    "scan_summary": {
+      "semgrep_findings": 2,
+      "semgrep_errors": 0,
+      "gitleaks_dir_findings": 0,
+      "gitleaks_git_findings": 0
+    }
+  },
+  "repeat": {
+    "commit": "e41e9b6774ba4adb66964460f56be155d664abcb",
+    "tree": "3c7135fcca06da082b3ec46beb34f5f965af2c60",
+    "history_commits": 17,
+    "status": "",
+    "shallow": "false",
+    "status_after_scan": "",
+    "history_scope": "ancestors of e41e9b6774ba4adb66964460f56be155d664abcb",
+    "python_files": [
+      "app/__init__.py",
+      "app/database.py",
+      "app/init_db.py",
+      "app/main.py",
+      "app/models.py",
+      "app/schemas.py",
+      "app/security.py",
+      "app/workflow.py",
+      "scripts/smoke_core.py",
+      "tests/conftest.py",
+      "tests/test_api.py",
+      "tests/test_concurrency.py",
+      "tests/test_workflow.py"
+    ],
+    "scan_summary": {
+      "semgrep_findings": 2,
+      "semgrep_errors": 0,
+      "gitleaks_dir_findings": 0,
+      "gitleaks_git_findings": 0
+    }
+  }
+}

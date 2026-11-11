@@ -1,0 +1,4 @@
+title = "S09: full built-in Gitleaks rules"
+
+[extend]
+useDefault = true

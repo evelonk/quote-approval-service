@@ -1,0 +1,4 @@
+1:12AM INF Unknown SCM platform. Use --platform to include links in findings. host=
+1:12AM INF 17 commits scanned.
+1:12AM INF scanned ~233543 bytes (233.54 KB) in 160ms
+1:12AM INF no leaks found

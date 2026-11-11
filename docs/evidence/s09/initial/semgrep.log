@@ -1,0 +1,19 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 13 files tracked by git with 151 Code rules:
+  Scanning 13 files with 151 python rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 2 (2 blocking)
+ • Rules run: 151
+ • Targets scanned: 13
+ • Parsed lines: ~100.0%
+ • No ignore information available
+Ran 151 rules on 13 files: 2 findings.

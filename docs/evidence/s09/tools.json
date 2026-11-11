@@ -1,0 +1,26 @@
+{
+  "semgrep": {
+    "version": "1.185.0",
+    "engine": "CE OSS",
+    "config": "config/python-rules.yml",
+    "rules": 151,
+    "languages": [
+      "python"
+    ],
+    "source": "https://semgrep.dev/c/p/python",
+    "config_sha256": "de5bc79d074c3b4146338a0bf95830406f169bd91ac590a2f1ef111f162e23f5"
+  },
+  "gitleaks": {
+    "version": "8.30.1",
+    "config": "config/gitleaks.toml",
+    "config_sha256": "8875ce4ff0db1a5f2946b36f9d186d7952943fba9dc8b473b81d808105e5bd92",
+    "rules": "built-in default rules of v8.30.1 via extend.useDefault=true",
+    "source": "https://github.com/gitleaks/gitleaks/releases/tag/v8.30.1",
+    "archive": "gitleaks_8.30.1_darwin_arm64.tar.gz",
+    "archive_sha256": "b40ab0ae55c505963e365f271a8d3846efbc170aa17f2607f13df610a9aeb6a5",
+    "redaction_percent": 100
+  },
+  "course_commit": "cb09392a02f92fa810cea908adab783337a5a68d",
+  "run_by": "Codex at M1 request",
+  "human_review": "M1 reviewed previous results as recorded in AI_USAGE.md; the new repeat on e41e9b6 was run by Codex"
+}
